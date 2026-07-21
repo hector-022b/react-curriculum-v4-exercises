@@ -10,11 +10,10 @@
 
 import { useState } from 'react';
 export default function BugMutatedState() {
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   function handleAdd() {
-    count++;
-    setCount(count);
+    setCount((prevCount) => prevCount + 1);
   }
 
   return (
@@ -27,3 +26,10 @@ export default function BugMutatedState() {
 
 // Explanation:
 // (Write your explanation here)
+/* 
+
+count++ changes the state variable directly, which React should not do.
+In react you never change a state variable directly. Instead, you use a
+setter function so React knows the state changed and can update the screen.
+
+*/
