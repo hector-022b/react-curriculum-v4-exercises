@@ -6,7 +6,8 @@ export default function BugEventPropagation() {
     alert("RED BOX CLICKED ❌ Don't show me!");
   }
 
-  function handleInnerClick() {
+  function handleInnerClick(event) {
+    event.stopPropagation();
     alert('Button Clicked ✅');
   }
 
@@ -22,3 +23,12 @@ export default function BugEventPropagation() {
     </>
   );
 }
+
+// Write your explanation
+/*
+Event bubbling causes a click event to move from the element that was clicked
+up through its parent elements. Since the button is inside the red div,
+clicking the button also triggered the div's onClick event. Using
+event.stopPropagation() stops the event from bubbling up, so only the button's
+click handler runs.
+*/
