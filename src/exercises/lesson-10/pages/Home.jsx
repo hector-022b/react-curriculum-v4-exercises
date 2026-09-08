@@ -36,7 +36,9 @@ export default function Home({ products }) {
               }}
             />
 
-            <h3 style={{ margin: '10px 0 4px' }}>{p.name}</h3>
+            <h3 style={{ margin: '10px 0 4px' }}>
+              <Link to={`/lessons/lesson-10/products/${p.id}`}>{p.name}</Link>
+            </h3>
 
             <p style={{ margin: 0 }}>
               <strong>${p.price.toFixed(2)}</strong>
